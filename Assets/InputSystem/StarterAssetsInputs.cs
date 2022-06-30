@@ -13,6 +13,8 @@ namespace StarterAssets
 		public bool jump;
 		public bool sprint;
 
+		public bool fire;
+
 		[Header("Movement Settings")]
 		public bool analogMovement;
 
@@ -24,6 +26,7 @@ namespace StarterAssets
 		public void OnMove(InputValue value)
 		{
 			MoveInput(value.Get<Vector2>());
+			
 		}
 
 		public void OnLook(InputValue value)
@@ -37,6 +40,10 @@ namespace StarterAssets
 		public void OnJump(InputValue value)
 		{
 			JumpInput(value.isPressed);
+		}
+		public void OnFire(InputValue value)
+		{
+			FireInput(value.isPressed);
 		}
 
 		public void OnSprint(InputValue value)
@@ -60,7 +67,10 @@ namespace StarterAssets
 		{
 			jump = newJumpState;
 		}
-
+		public void FireInput(bool newFireState)
+		{
+			fire = newFireState;
+		}
 		public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
